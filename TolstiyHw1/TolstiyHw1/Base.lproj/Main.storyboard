@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TolstiyHw1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Paz-F1-LIy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2124"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="arA-bA-981">
+                                        <rect key="frame" x="306" y="55" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="B4w-N8-Vec"/>
+                                        </constraints>
+                                        <color key="onTintColor" systemColor="linkColor"/>
+                                        <connections>
+                                            <action selector="switchPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qah-rK-9CY"/>
+                                        </connections>
+                                    </switch>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ku1-I5-auZ">
+                                        <rect key="frame" x="8" y="55" width="94" height="31"/>
+                                        <connections>
+                                            <action selector="pickerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QIM-2B-480"/>
+                                        </connections>
+                                    </stepper>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htY-Go-lPl">
+                                        <rect key="frame" x="8" y="149" width="359" height="216"/>
+                                    </pickerView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FsP-mw-jfl">
+                                        <rect key="frame" x="20" y="410" width="335" height="2000"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Overview
+UITextView supports the display of text using custom style information and also supports text editing. You typically use a text view to display multiple lines of text, such as when displaying the body of a large text document.
+
+This class supports multiple text styles through use of the attributedText property. (Styled text isn’t supported in versions of iOS earlier than iOS 6.) Setting a value for this property causes the text view to use the style information provided in the attributed string. You can still use the font, textColor, and textAlignment properties to set style attributes, but those properties apply to all of the text in the text view. It’s recommended that you use a text view—and not a UIWebView object—to display both plain and rich text in your app.
+
+Manage the keyboard
+When the user taps in an editable text view, that text view becomes the first responder and automatically asks the system to display the associated keyboard. Because the appearance of the keyboard has the potential to obscure portions of your user interface, it’s up to you to make sure that doesn’t happen by repositioning any views that might be obscured. Some system views, like table views, help you by scrolling the first responder into view automatically. If the first responder is at the bottom of the scrolling region, however, you may still need to resize or reposition the scroll view itself to ensure the first responder is visible.
+
+It’s your application’s responsibility to dismiss the keyboard at the time of your choosing. You might dismiss the keyboard in response to a specific user action, such as the user tapping a particular button in your user interface. To dismiss the keyboard, send the resignFirstResponder() message to the text view that’s currently the first responder. Doing so causes the text view object to end the current editing session (with the delegate object’s consent) and hide the keyboard.
+
+The appearance of the keyboard itself can be customized using the properties provided by the UITextInputTraits protocol. Text view objects implement this protocol and support the properties it defines. You can use these properties to specify the type of keyboard (ASCII, Numbers, URL, Email, and others) to display. You can also configure the basic text entry behavior of the keyboard, such as whether it supports automatic capitalization and correction of the text.
+
+Keyboard notifications
+When the system shows or hides the keyboard, it posts several keyboard notifications. These notifications contain information about the keyboard, including its size, which you can use for calculations that involve repositioning or resizing views. Registering for these notifications is the only way to get some types of information about the keyboard. The system delivers the following notifications for keyboard-related events:
+
+keyboardWillShowNotification
+
+keyboardDidShowNotification
+
+keyboardWillHideNotification
+
+keyboardDidHideNotification
+
+For more information about these notifications, see their descriptions in UIWindow.
+
+State preservation
+In iOS 6 and later, if you assign a value to this view’s restorationIdentifier property, it preserves the following information:
+
+The selected range of text, as reported by the selectedRange property.
+
+The editing state of the text view, as reported by the isEditable property.
+
+During the next launch cycle, the view attempts to restore these properties to their saved values. If the selection range can’t be applied to the text in the restored view, no text is selected. For more information about how state preservation and restoration works, see App Programming Guide for iOS.
+
+</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FsP-mw-jfl" firstAttribute="leading" secondItem="Paz-F1-LIy" secondAttribute="leading" constant="20" symbolic="YES" id="3R9-ds-cS7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ku1-I5-auZ" secondAttribute="trailing" constant="273" id="7bK-Ur-Jh7"/>
+                                    <constraint firstItem="arA-bA-981" firstAttribute="top" secondItem="Paz-F1-LIy" secondAttribute="top" constant="55" id="8uQ-fg-cbg"/>
+                                    <constraint firstAttribute="bottom" secondItem="FsP-mw-jfl" secondAttribute="bottom" constant="-286" id="AnV-j9-Yxc"/>
+                                    <constraint firstItem="FsP-mw-jfl" firstAttribute="top" secondItem="htY-Go-lPl" secondAttribute="bottom" constant="45" id="BrE-ib-aL5"/>
+                                    <constraint firstItem="arA-bA-981" firstAttribute="leading" secondItem="Paz-F1-LIy" secondAttribute="leading" constant="306" id="JlM-ii-fMk"/>
+                                    <constraint firstAttribute="trailing" secondItem="htY-Go-lPl" secondAttribute="trailing" constant="8" id="TfP-c6-YZg"/>
+                                    <constraint firstItem="htY-Go-lPl" firstAttribute="leading" secondItem="Paz-F1-LIy" secondAttribute="leading" constant="8" id="btH-se-JrQ"/>
+                                    <constraint firstItem="htY-Go-lPl" firstAttribute="top" secondItem="ku1-I5-auZ" secondAttribute="bottom" constant="63" id="chr-XG-vXa"/>
+                                    <constraint firstAttribute="trailing" secondItem="FsP-mw-jfl" secondAttribute="trailing" constant="20" symbolic="YES" id="hKb-GR-FcW"/>
+                                    <constraint firstItem="ku1-I5-auZ" firstAttribute="top" secondItem="arA-bA-981" secondAttribute="top" id="hmF-sf-qx4"/>
+                                    <constraint firstItem="ku1-I5-auZ" firstAttribute="centerY" secondItem="arA-bA-981" secondAttribute="centerY" id="i7b-b6-gbV"/>
+                                    <constraint firstAttribute="bottom" secondItem="arA-bA-981" secondAttribute="bottom" constant="2038" id="lT8-sq-AiH"/>
+                                    <constraint firstItem="FsP-mw-jfl" firstAttribute="top" secondItem="Paz-F1-LIy" secondAttribute="top" constant="410" id="oMy-0L-sGA"/>
+                                    <constraint firstItem="ku1-I5-auZ" firstAttribute="leading" secondItem="Paz-F1-LIy" secondAttribute="leadingMargin" id="zDd-w7-ZkZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.56910714870000001" green="0.86078917980000003" blue="0.57569267749999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Paz-F1-LIy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0qf-v4-Ddt"/>
+                            <constraint firstItem="Paz-F1-LIy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="I2O-SD-RT8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Paz-F1-LIy" secondAttribute="bottom" constant="42" id="TMn-3R-ORV"/>
+                            <constraint firstItem="Paz-F1-LIy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b5b-0F-zws"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="375" height="2200"/>
+                    <connections>
+                        <outlet property="pickerView" destination="htY-Go-lPl" id="iNx-64-uh7"/>
+                        <outlet property="stepper" destination="ku1-I5-auZ" id="TTK-uv-I31"/>
+                        <outlet property="switchOutlet" destination="arA-bA-981" id="DVV-aH-UU2"/>
+                        <outlet property="textView" destination="FsP-mw-jfl" id="hre-Zl-xQL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-319.19999999999999" y="3.6945812807881775"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
